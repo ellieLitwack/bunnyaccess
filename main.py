@@ -4,11 +4,15 @@ import re
 def extractReadable(text):
     print(text)
     if isBunny(text):
-        #match all multiletter words, single letter words a u y r i, @'s and #'s
-        readable = re.findall("(([a-z]|[A-Z]|[#@])\w+)|([aAuUyYrRiI])", text)
-        print(readable)
-        #for each regex match remove all empty strings then choose the first string
-        return ' '.join([[s for s in i if s][0] for i in readable])
+        # the bunnies always have the same unicode characters (and patterns) in
+        # them, so we can do a little fancy matching to just strip away all the
+        # lines we don't want
+        text = [
+            line for line in text.split('\n')
+            if not bool(re.search('[￣＿ㅅづ]+|\/\)+', line))
+        ]
+        text = [line.strip() for line in text if line != '']
+        return ' '.join(text)
     else:
         print("input not recognized as a bunny holding a sign")
         return None
