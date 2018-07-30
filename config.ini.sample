@@ -1,0 +1,11 @@
+[twitter]
+oauth_consumer_token=1234
+oauth_consumer_secret=asdf
+access_token_key=asdf
+access_token_secret=asdf
+
+[main]
+# If you're working on the bot and are using a test account, use this field
+# to allow your instance to listen for a different keyword. If this is the
+# actual @bunnyaccess, then just put 'bunnyaccess' sans quotes
+watch_word=yourkeywordhere
