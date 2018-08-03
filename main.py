@@ -54,7 +54,7 @@ def extractReadable(text):
         return None
 
 def isBunny(text):
-    return "(•ㅅ•)" in text
+    return ("(•ㅅ•)" in text) or ("•.•)" in text
 
 def getBody(tweet):
     if hasattr(tweet, 'full_text'):
